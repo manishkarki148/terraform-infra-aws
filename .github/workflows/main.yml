@@ -1,0 +1,49 @@
+name: Terraform Deploy (OIDC)
+
+on:
+  workflow_dispatch:
+
+permissions:
+  id-token: write
+  contents: read
+
+jobs:
+  terraform:
+    name: Deploy Terraform
+    runs-on: ubuntu-latest
+
+    environment: production   # optional: use protected environment
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # Configure AWS credentials using OIDC
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: ${{ secrets.AWS_ROLE_ARN }}
+          role-session-name: github-terraform-session
+          aws-region: ${{ secrets.AWS_REGION }}
+
+      # Install Terraform
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v3
+        with:
+          terraform_version: 1.6.6
+
+      # Initialize Terraform
+      - name: Terraform Init
+        run: terraform init
+
+      # Validate configuration
+      - name: Terraform Validate
+        run: terraform validate
+
+      # Create execution plan
+      - name: Terraform Plan
+        run: terraform plan -out=tfplan
+
+      # Apply (only if manual trigger)
+      - name: Terraform Apply
+        run: terraform apply -auto-approve tfplan
