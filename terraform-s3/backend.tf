@@ -2,8 +2,8 @@ terraform {
   required_version = ">= 1.3.0"
 
   backend "s3" {
-    bucket = "my-terraform-state-bucket"   # Replace with your S3 bucket
-    key    = "envs/prod/terraform.tfstate" # Path to state file in the bucket
+    bucket = "mk-terraform-backend-s3"   # Replace with your S3 bucket
+    key    = "envs/dev/s3-1/terraform.tfstate" # Path to state file in the bucket
     region = var.aws_region
 
     # Enable server-side encryption
