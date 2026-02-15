@@ -35,15 +35,19 @@ jobs:
       # Initialize Terraform
       - name: Terraform Init
         run: terraform init
+        working-directory: ./terraform-s3
 
       # Validate configuration
       - name: Terraform Validate
         run: terraform validate
+        working-directory: ./terraform-s3
 
       # Create execution plan
       - name: Terraform Plan
         run: terraform plan -out=tfplan
+        working-directory: ./terraform-s3
 
       # Apply (only if manual trigger)
       - name: Terraform Apply
         run: terraform apply -auto-approve tfplan
+        working-directory: ./terraform-s3
