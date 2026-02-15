@@ -2,6 +2,11 @@ name: Terraform Deploy (OIDC)
 
 on:
   workflow_dispatch:
+    inputs:
+      tf_directory:
+        description: "Terraform directory to deploy."
+        required: true
+        default: "./terraform-s3"
 
 permissions:
   id-token: write
