@@ -35,19 +35,19 @@ jobs:
       # Initialize Terraform
       - name: Terraform Init
         run: terraform init
-        working-directory: ./terraform-s3
+        working-directory: ./${{ github.event.inputs.tf_directory }}
 
       # Validate configuration
       - name: Terraform Validate
         run: terraform validate
-        working-directory: ./terraform-s3
+        working-directory: ./${{ github.event.inputs.tf_directory }}
 
       # Create execution plan
       - name: Terraform Plan
         run: terraform plan -out=tfplan
-        working-directory: ./terraform-s3
+        working-directory: ./${{ github.event.inputs.tf_directory }}
 
       # Apply (only if manual trigger)
       - name: Terraform Apply
         run: terraform apply -auto-approve tfplan
-        working-directory: ./terraform-s3
+        working-directory: ./${{ github.event.inputs.tf_directory }}
