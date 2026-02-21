@@ -15,6 +15,10 @@ provider "aws" {
 }
 
 provider "aws" {
-  alias = "accountB"
+  alias  = "account_b"
   region = var.aws_region
+
+  assume_role {
+    role_arn = var.account_b_role_arn
+  }
 }
