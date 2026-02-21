@@ -2,7 +2,7 @@
 
 module "mk_s3_bucket" {
   providers = {
-    aws.account_b = aws.account_b
+    aws = aws.account_b
   }
   source = "./modules/my-s3"
   bucket_name = var.bucket_name
