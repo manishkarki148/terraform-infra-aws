@@ -15,3 +15,7 @@ variable "aws_region" {
   default     = "us-east-1"  # optional default
 }
 
+variable "account_b_role_arn" {
+  type = string
+}
+
