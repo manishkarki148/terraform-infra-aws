@@ -44,11 +44,15 @@ jobs:
 
       # Validate configuration
       - name: Terraform Validate
+        env:
+          TF_VAR_account_b_role_arn: ${{ secrets.ACCOUNT_B_ROLE_ARN }}
         run: terraform validate
         working-directory: ./${{ github.event.inputs.tf_directory }}
 
       # Create execution plan
       - name: Terraform Plan
+        env:
+          TF_VAR_account_b_role_arn: ${{ secrets.ACCOUNT_B_ROLE_ARN }}
         run: terraform plan -out=tfplan
         working-directory: ./${{ github.event.inputs.tf_directory }}
 
