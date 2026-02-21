@@ -26,6 +26,9 @@ provider "aws" {
 
 
 module "vendor_s3" {
+  providers = {
+    aws = aws.account_b
+  }
   source  = "terraform-aws-modules/s3-bucket/aws"
   version = "5.10.0"
 
