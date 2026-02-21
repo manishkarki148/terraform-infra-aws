@@ -20,7 +20,7 @@ provider "aws" {
   region = var.aws_region
 
   assume_role {
-    role_arn = var.account_b_role_arn
+    role_arn = "arn:aws:iam::376408658479:role/MK-Github-Pipeline-Access"
   }
 }
 
