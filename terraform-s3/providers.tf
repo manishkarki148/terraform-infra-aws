@@ -13,3 +13,8 @@ terraform {
 provider "aws" {
   region = var.aws_region
 }
+
+provider "aws" {
+  alias = "accountB"
+  region = var.aws_region
+}
