@@ -12,7 +12,7 @@ terraform {
     use_lockfile = true
 
     # Optional: Enable S3 bucket versioning (highly recommended for state recovery)
-    versioning_enabled = true
+    # versioning_enabled = true
 
     # Optional: force S3-only locking without DynamoDB
     # WARNING: S3-only locking is not strongly consistent. Only for small teams/testing.
