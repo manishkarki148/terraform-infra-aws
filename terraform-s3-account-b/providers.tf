@@ -1,4 +1,3 @@
-
 terraform {
 
   required_version = ">= 1.3.0"
@@ -7,6 +6,7 @@ terraform {
     aws = {
       source  = "hashicorp/aws"
       version = ">= 6.28.0, < 7.0.0"
+      configuration_aliases = [aws.account_b]
     }
   }
 }
