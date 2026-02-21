@@ -33,5 +33,6 @@ module "vendor_s3" {
   version = "5.10.0"
 
   bucket = var.bucket_name
+  account_b_role_arn = var.account_b_role_arn
   acl = null
 }
