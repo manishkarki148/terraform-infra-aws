@@ -39,20 +39,28 @@ jobs:
 
       # Initialize Terraform
       - name: Terraform Init
+        env:
+          TF_VAR_account_b_role_arn: ${{ secrets.ACCOUNT_B_ROLE_ARN }}
         run: terraform init
         working-directory: ./${{ github.event.inputs.tf_directory }}
 
       # Validate configuration
       - name: Terraform Validate
+        env:
+          TF_VAR_account_b_role_arn: ${{ secrets.ACCOUNT_B_ROLE_ARN }}
         run: terraform validate
         working-directory: ./${{ github.event.inputs.tf_directory }}
 
       # Create execution plan
       - name: Terraform Plan
+        env:
+          TF_VAR_account_b_role_arn: ${{ secrets.ACCOUNT_B_ROLE_ARN }}
         run: terraform plan -out=tfplan
         working-directory: ./${{ github.event.inputs.tf_directory }}
 
       # Apply (only if manual trigger)
       - name: Terraform Apply
+        env:
+          TF_VAR_account_b_role_arn: ${{ secrets.ACCOUNT_B_ROLE_ARN }}
         run: terraform apply -auto-approve tfplan
         working-directory: ./${{ github.event.inputs.tf_directory }}
