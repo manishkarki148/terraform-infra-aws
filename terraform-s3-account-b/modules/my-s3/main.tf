@@ -1,4 +1,4 @@
-
+/*
 terraform {
 
   required_version = ">= 1.3.0"
@@ -25,7 +25,7 @@ provider "aws" {
     role_arn = "arn:aws:iam::376408658479:role/MK-Github-Pipeline-Access"
   }
 }
-
+*/
 
 module "vendor_s3" {
 /*
