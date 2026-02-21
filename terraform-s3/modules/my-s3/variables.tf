@@ -10,5 +10,6 @@ variable "aws_region" {
 }
 
 variable "account_b_role_arn" {
-  type = string
+  description = "Role ARN for cross-account deployment"
+  type        = string
 }
