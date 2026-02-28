@@ -59,8 +59,8 @@ jobs:
         working-directory: ./${{ github.event.inputs.tf_directory }}
 
       # Apply (only if manual trigger)
-      - name: Terraform Apply
-        env:
-          TF_VAR_account_b_role_arn: ${{ secrets.ACCOUNT_B_ROLE_ARN }}
-        run: terraform apply -auto-approve tfplan
-        working-directory: ./${{ github.event.inputs.tf_directory }}
+      #- name: Terraform Apply
+      #  env:
+      #    TF_VAR_account_b_role_arn: ${{ secrets.ACCOUNT_B_ROLE_ARN }}
+      #  run: terraform apply -auto-approve tfplan
+      #  working-directory: ./${{ github.event.inputs.tf_directory }}
