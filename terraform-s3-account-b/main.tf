@@ -1,8 +1,4 @@
 
-terraform {
-  use_lockfile = true   # lock .terraform.lock.hcl for provider/module versions
-}
-
 module "mk_s3_bucket" {
   providers = {
     aws = aws.account_b
