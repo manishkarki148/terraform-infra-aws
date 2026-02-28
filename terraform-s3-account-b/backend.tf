@@ -5,6 +5,6 @@ terraform {
     encrypt = true
     region = "us-east-1"
     profile = "default"
-    #use_lockfile = true
+    use_lockfile = true
   }
 }
