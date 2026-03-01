@@ -8,13 +8,3 @@ variable "aws_region" {
   type        = string
   default     = "us-east-1"  # optional default
 }
-
-variable "account_b_role_arn" {
-  description = "Role ARN for cross-account assume_role"
-  type        = string
-}
-
-variable "account_a_role_arn" {
-  description = "Role ARN for cross-account assume_role"
-  type        = string
-}
