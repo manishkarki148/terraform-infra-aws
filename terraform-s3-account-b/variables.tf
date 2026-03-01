@@ -4,10 +4,16 @@ variable "environment" {
   default     = "dev"
 }
 
-variable "bucket_name" {
+variable "bucket_name_a" {
   description = "Name of the S3 bucket"
   type        = string
 }
+
+variable "bucket_name_b" {
+  description = "Name of the S3 bucket"
+  type        = string
+}
+
 
 variable "aws_region" {
   description = "AWS region to deploy resources"
