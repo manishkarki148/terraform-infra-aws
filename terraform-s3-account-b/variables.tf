@@ -19,3 +19,8 @@ variable "account_b_role_arn" {
   description = "Role ARN for cross-account assume_role"
   type        = string
 }
+
+variable "account_a_role_arn" {
+  description = "Role ARN for cross-account assume_role"
+  type        = string
+}
